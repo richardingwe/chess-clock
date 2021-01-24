@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 
-const ChessTimeInput = () => {
+const ChessTimeInput = ({ getTime }) => {
     const [input, setInput] = useState("");
     const handleChange = (e) => {
         setInput(e.target.value);
     };
     return (
         <div>
-            <form>
+            <form onSubmit={() => getTime(input)}>
                 <input type="text" value={input} onChange={handleChange} />
             </form>
         </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Clock2 from './Clock2';
+import ChessTimeInput from './ChessTimeInput';
 import Clocks from './Clocks';
 
 const ChessClocks = () => {
@@ -7,6 +7,10 @@ const ChessClocks = () => {
     const [paused1, setPaused1] = useState(true);
     const [paused2, setPaused2] = useState(true);
     const [time, setTime] = useState(seconds || 620);
+
+    const getTime = (value) = > {
+        setTime(value);
+    };
 
     const pause1 = () => {
         setPaused1(true);
@@ -18,9 +22,9 @@ const ChessClocks = () => {
     };
     return (
         <>
+            <ChessTimeInput getTime={getTime} />
             <div>
                 <Clocks paused={paused1} seconds={time} pause={pause1} color={paused1 ? "yellow" : "blue"} />
-                {/* <Clock2 /> */}
             </div>
             <div>
                 <Clocks paused={paused2} seconds={time} pause={pause2} color={paused2 ? "yellow" : "blue"} />
